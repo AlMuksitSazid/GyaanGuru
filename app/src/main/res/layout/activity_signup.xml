@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context=".Account_details.SignupActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="40sp"
+                    android:text="Create"></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:text="new Account"></TextView>
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50sp"
+                android:src="@drawable/app_logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Gyaan"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Guru"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:orientation="vertical">
+                <EditText
+                    android:background="@drawable/design_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:hint="Enter username"
+                    android:textColor="#000"
+                    android:id="@+id/username"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:drawableTint="@color/dark_grey"
+                    android:drawablePadding="10dp"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:textAlignment="viewStart"
+                    android:paddingStart="15sp"
+                    android:focusableInTouchMode="true"
+                    tools:ignore="HardcodedText,RtlSymmetry"></EditText>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/design_edittext"
+                    android:layout_margin="10dp"
+                    android:hint="Enter email"
+                    android:textAlignment="viewStart"
+                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawableTint="@color/dark_grey"
+                    android:drawablePadding="10dp"
+                    android:paddingStart="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/email"
+                    android:textIsSelectable="true"
+                    android:inputType="textEmailAddress"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    tools:ignore="HardcodedText,RtlSymmetry"></EditText>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/design_edittext"
+                    android:layout_margin="10dp"
+                    android:textAlignment="viewStart"
+                    android:drawableLeft="@drawable/baseline_lock_24"
+                    android:drawableTint="@color/dark_grey"
+                    android:drawablePadding="10dp"
+                    android:paddingStart="15sp"
+                    android:hint="Enter password"
+                    android:textColor="#000"
+                    android:id="@+id/password"
+                    android:inputType="textPassword"
+                    app:passwordToggleEnabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    tools:ignore="HardcodedText,RtlSymmetry"></EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I agree to the "
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/light_Green"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold"
+                    android:onClick="terms"
+                    android:text="terms and conditions"></TextView>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Sign UP"
+                android:textColor="@color/navy_blue"
+                android:id="@+id/signup"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/light_blue"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"></Button>
+
+            <TextView
+                android:onClick="login"
+                android:layout_width="match_parent"
+                android:text="Already have an account?"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:layout_margin="10sp"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                tools:ignore="HardcodedText,UsingOnClickInXml"></TextView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/baseline_info_outline_24"
+        android:tint="?attr/menuIconColor"
+        android:title="About"/>
+    <item
+        android:id="@+id/privacy_policy"
+        android:icon="@drawable/baseline_privacy_tip_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Privacy Policy"/>
+    <item
+        android:id="@+id/faq"
+        android:icon="@drawable/baseline_question_mark_24"
+        android:tint="?attr/menuIconColor"
+        android:title="FAQ"/>
+    <item
+        android:id="@+id/rate_us"
+        android:icon="@drawable/baseline_star_half_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Rate this App"/>
+    <item
+        android:id="@+id/more_apps"
+        android:icon="@drawable/baseline_more_24"
+        android:tint="?attr/menuIconColor"
+        android:title="More Apps"/>
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/baseline_share_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Share"/>
+    <item
+        android:id="@+id/check_updates"
+        android:icon="@drawable/baseline_loop_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Check Updates"/>
+    <item
+        android:id="@+id/remove_ads"
+        android:icon="@drawable/baseline_block_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Remove Ads"/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:tint="?attr/menuIconColor"
+        android:title="Settings"
+        app:showAsAction="always"/>
+
+</menu>

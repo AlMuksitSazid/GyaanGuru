@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple">#FF6200EE</color>
+    <color name="blue">#07B8FE</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="red">#FFEF5350</color>
+    <color name="yellow">#FFFFC107</color>
+    <color name="teal">#FF009688</color>
+    <color name="orange">#f78441</color>
+    <color name="grey">#e9e7f2</color>
+    <color name="dark_grey">#FF616161</color>
+    <color name="light_grey">#FFBDBDBD</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary">#665A87</color>
+    <color name="primary_dark">#FF3700B3</color>
+    <color name="primary_light">#FF9575CD</color>
+    <color name="secondary">#FF03A9F4</color>
+    <color name="secondary_dark">#FF018786</color>
+    <color name="secondary_light">#FF4DD0E1</color>
+    <color name="success">#FF4CAF50</color>
+    <color name="success_dark">#FF007F33</color>
+    <color name="success_light">#FF81C784</color>
+    <color name="error">#FFEF5350</color>
+    <color name="error_dark">#FFB00020</color>
+    <color name="error_light">#FFEF9A9A</color>
+    <color name="warning">#FFFFC107</color>
+    <color name="warning_dark">#FFEB3400</color>
+    <color name="warning_light">#FFFFE082</color>
+    <color name="info">#FF009688</color>
+    <color name="info_dark">#FF00695C</color>
+    <color name="info_light">#FF4DD0E1</color>
+    <color name="primary_text">#FF212121</color>
+    <color name="secondary_text">#FF757575</color>
+    <color name="disabled_text">#FF9E9E9E</color>
+    <color name="divider">#FFBDBDBD</color>
+    <color name="background">#FFFFFFFF</color>
+    <color name="surface">#FDFDFD</color>
+    <color name="primary_container">#FF3F51B5</color>
+    <color name="secondary_container">#FF1976D2</color>
+    <color name="success_container">#FF009688</color>
+    <color name="error_container">#FFEF5350</color>
+    <color name="warning_container">#FFFFC107</color>
+    <color name="info_container">#FF009688</color>
+    <color name="top_background">#7527D5</color>
+
+    <color name="dark_pink">#352e4f</color>
+    <color name="dark_blue">#0C2D48</color>
+    <color name="navy_blue">#274472</color>
+    <color name="red_orange">#5C0601</color>
+    <color name="dark_green">#1A4314</color>
+
+    <color name="light_orange">#A82810</color>
+    <color name="light_blue">#C0DCEC</color>
+    <color name="light_Green">#B1D8B7</color>
+    <color name="light_Pink">#ECE3F0</color>
+
+
+
+</resources>

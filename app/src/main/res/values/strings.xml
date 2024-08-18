@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name">GyaanGuru</string>
+    <string name="app_description">App description is loading</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_chat_bot">Chat Bot</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_gemini">GeminiActivity</string>
+
+
+    <!--About-->
+    <string name="about_title">About GyaanGuru</string>
+    <string name="about_intro">Welcome to GyaanGuru, your one-stop destination for career advancement!\n\nAt GyaanGuru, we are passionate about empowering individuals to reach their full potential. We believe that knowledge is the key to unlocking opportunities, and we strive to provide a comprehensive platform that equips you with the tools you need tosucceed.</string>
+    <string name="about_features_title">What We Offer:</string>
+    <string name="about_features">
+        • Stay Ahead with Career News: Get the latest updates on industry trends, job openings, and career advice to make informed decisions.\n\n
+        • Test Your Knowledge with Quizzes: Challenge yourself with engaging quizzes to assess your skills and identify areas for improvement.\n\n
+        • Learn and Grow with Tutorials: Access a vast library of tutorials covering a wide range of topics to enhance your expertise.\n\n
+        • Stay Informed with Daily Updates: Receive daily doses of valuable information and insights to stay ahead of the curve.
+    </string>
+    <string name="about_contact_title">Contact Us:</string>
+    <string name="about_contact">
+        • Email: <a href="mailto:smash.tech@gmail.com">smash.tech@gmail.com</a> \n\n
+        • Phone: <a href="tel:+8801787249887">+8801787249887</a>\n\n
+        • Address: Gabtali, Bogura, Bangladesh
+    </string>
+    <string name="about_feedback">We value your feedback! Let us know how we can improve GyaanGuru to better serve your needs. Your input is essential in helping us create an exceptional learning experience.</string>
+    <string name="about_developer">Developed by Smash Technology</string>
+    <string name="about_developer_info">GyaanGuru is brought to you by Smash Technology, a team of dedicated professionals committed to creating innovative solutions that make a positive impact.</string>
+
+
+    <!--Terms and Conditions-->
+    <string name="terms_title">Terms &amp; Conditions</string>
+    <string name="terms_intro">Welcome to GyaanGuru, your one-stop destination for career advancement! By using our app, you agree to be bound by these Terms and Conditions. Please read them carefully.</string>
+
+    <string name="terms_user_accounts_title">User Accounts</string>
+    <string name="terms_user_accounts">If you create an account with GyaanGuru, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your device. You agree to accept responsibility for all activities that occur under your account or password.</string>
+
+    <string name="terms_user_content_title">User Content</string>
+    <string name="terms_user_content">You retain ownership of any content you create and post within the app, including quiz responses and chat interactions. However, by posting content, you grant GyaanGuru a non-exclusive, royalty-free, worldwide license to use, reproduce, modify, adapt, publish, translate, distribute, and display that content.</string>
+
+    <string name="terms_intellectual_property_title">Intellectual Property</string>
+    <string name="terms_intellectual_property">All content provided within GyaanGuru, including courses, quizzes, tutorials, and daily updates, is the intellectual property of Smash Technology and is protected by copyright and other intellectual property laws. You may not copy, distribute, modify, or create derivative works of any content without our express written permission.</string>
+
+    <string name="terms_disclaimer_title">Disclaimers and Limitations of Liability</string>
+    <string name="terms_disclaimer">GyaanGuru strives to provide accurate and up-to-date information. However, we do not guarantee the completeness, accuracy, or reliability of any content. Your use of the app is at your own risk. We are not liable for any damages arising from your use of theapp.</string>
+
+    <string name="terms_termination_title">Termination</string>
+    <string name="terms_termination">GyaanGuru reserves the right to terminate your account and access to the app at any time, without notice, for any reason, including but not limited to a breach of these Terms and Conditions.</string>
+
+    <string name="terms_changes_title">Changes to Terms and Conditions</string>
+    <string name="terms_changes">We may update these Terms and Conditions from time to time. We will notify you of any changes by posting the new Terms and Conditions on this page. Your continued use of the app after any such changes constitutes your acceptance of the new Terms and Conditions.</string>
+
+    <string name="terms_governing_law_title">Governing Law and Dispute Resolution</string>
+    <string name="terms_governing_law">These Terms and Conditions are governed by the laws of [Your Country/State]. Any disputes arising from these Terms and Conditions shall be resolved through [Your preferred dispute resolution method, e.g., mediation or arbitration].</string>
+
+    <string name="terms_contact_title">Contact Us</string>
+    <string name="terms_contact">If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:smash.tech@gmail.com">smash.tech@gmail.com</a>.</string>
+
+
+    <!--Privacy Policy    -->
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="privacy_intro">At GyaanGuru, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and share your data when you use our app.</string>
+
+    <string name="privacy_info_collected_title">Information We Collect</string>
+    <string name="privacy_info_collected">We may collect the following types of information:
+        \n• Personal Information: Name, email address (if you create an account), and any other information you voluntarily provide.
+        \n• Usage Data: How you interact with the app, including features used, time spent, and pages visited.
+        \n• Device Information: Device type, operating system, unique device identifiers, and network information.</string>
+
+    <string name="privacy_use_of_info_title">How We Use Your Information</string>
+    <string name="privacy_use_of_info">We use your information to:
+        \n• Provide and improve the app\'s functionality.
+        \n• Personalize your experience.
+        \n• Communicate with you (e.g., respond to inquiries, send updates).
+        \n• Analyze app usage and trends.
+        \n• Protect against fraud and security threats.</string>
+
+    <string name="privacy_data_sharing_title">Sharing Your Information</string>
+    <string name="privacy_data_sharing">We may share your information with:
+        \n• Third-Party Service Providers: Companies that help us operate the app (e.g., hosting, analytics).
+        \n• Legal Requirements: When required by law or to protect our rights.
+        \n• Business Transfers: In the event of a merger, acquisition, or sale of assets.</string>
+
+    <string name="privacy_data_security_title">Data Security</string>
+    <string name="privacy_data_security">We implement appropriate security measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is 100% secure.</string>
+
+    <string name="privacy_children_title">Children\'s Privacy</string>
+    <string name="privacy_children">GyaanGuru is not intended for children under the age of [Specify age]. We do not knowingly collect personal information from children.</string>
+
+    <string name="privacy_changes_title">Changes to This Privacy Policy</string>
+    <string name="privacy_changes">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</string>
+
+    <string name="privacy_contact_title">Contact Us</string>
+    <string name="privacy_contact">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:smash.tech@gmail.com">smash.tech@gmail.com</a>.</string>
+
+</resources>

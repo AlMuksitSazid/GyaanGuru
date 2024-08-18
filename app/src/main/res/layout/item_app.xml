@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_rowWeight="1"
+    android:layout_margin="10sp"
+    app:cardCornerRadius="30sp"
+    app:cardElevation="10sp"
+    app:cardBackgroundColor="@color/white"
+    app:cardUseCompatPadding="false">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10sp"
+        android:padding="1sp">
+
+        <ImageView
+            android:id="@+id/appIconImageView"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:src="@drawable/smashchat_icon"
+            android:contentDescription="@string/app_description" />
+
+        <TextView
+            android:id="@+id/appNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:text="App Name"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textAlignment="center"
+            android:text="App Description" />
+
+        <Button
+            android:id="@+id/downloadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textAlignment="center"
+            android:text="Download" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

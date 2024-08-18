@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_chatAI"
+        android:icon="@drawable/baseline_chat_24"
+        android:title="Chat AI"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/dark_green"/>
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/navy_blue" />
+    <item
+        android:id="@+id/bottom_quizzes"
+        android:icon="@drawable/baseline_quiz_24"
+        android:title="Quizzes"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/dark_pink"/>
+
+</menu>
