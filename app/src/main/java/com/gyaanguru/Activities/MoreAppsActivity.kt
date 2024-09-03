@@ -1,7 +1,9 @@
 package com.gyaanguru.Activities
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +14,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.graphics.Color
+import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+//import androidx.compose.ui.graphics.Color
 import androidx.core.view.ViewCompat
 
 import androidx.core.view.WindowInsetsCompat
@@ -77,9 +83,20 @@ class MoreAppsActivity : AppCompatActivity() {
                 downloadButton.setOnClickListener {
                     // Fetch the download link for the specific app
                     val specificAppLinkRef = appLinkRef.child(appInfo.name)
+
+                    // Create and show the custom progress dialog immediately
+                    val dialogBuilder = AlertDialog.Builder(this)
+                    val dialogView = layoutInflater.inflate(R.layout.progress_dialog, null)
+                    val progressBar = dialogView.findViewById<ProgressBar>(R.id.progressBar)
+                    dialogBuilder.setView(dialogView)
+                    dialogBuilder.setCancelable(false)
+                    val dialog = dialogBuilder.create()
+                    dialog.show()
+
                     specificAppLinkRef.get().addOnSuccessListener { linkSnapshot ->
                         val downloadLink = linkSnapshot.value as? String
                         if (downloadLink != null) {
+                            dialog.dismiss()
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(downloadLink))
                             startActivity(intent)
                         } else {

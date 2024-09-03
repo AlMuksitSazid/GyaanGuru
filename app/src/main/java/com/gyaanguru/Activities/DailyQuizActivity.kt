@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -47,21 +48,28 @@ class DailyQuizActivity : AppCompatActivity(), QuestionAdapter.score {
         window.statusBarColor= ContextCompat.getColor(this@DailyQuizActivity, R.color.dark_pink)
 
         receivedList = ArrayList(questionsList()).toMutableList()
-    //    receivedList = intent.getParcelableArrayListExtra<QuestionModel>("list")!!.toMutableList()
+        //    receivedList = intent.getParcelableArrayListExtra<QuestionModel>("list")!!.toMutableList()
 
         binding.apply {
             backImageView.setOnClickListener { finish() }
-
             progressBar.progress = 1
-            questionTxt.text = receivedList[position].question
+            questionTxt.text = receivedList[position].question ?: "" // Null check
 
           val drawableResourceId: Int = binding.root.resources.getIdentifier(
               receivedList[position].picPath, "drawable", binding.root.context.packageName)
-          val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
-            Glide.with(this@DailyQuizActivity)
-                .load(drawableResourceId)
-                .apply(requestOptions)
-                .into(pic)
+            if (drawableResourceId != 0) { // Check if resource ID is valid
+                val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
+                Glide.with(this@DailyQuizActivity)
+                    .load(drawableResourceId)
+                    .apply(requestOptions)
+                    .into(pic)
+            } else {
+                // Handle the case where the resource is not found (e.g., show a default image)
+                pic.visibility = View.GONE
+             //   pic.setImageResource(R.drawable.default_quiz_image)
+             //   Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show()
+             //   Log.e("DailyQuizActivity", "Image resource not found for picPath: ${receivedList[position].picPath}")
+            }
             loadAnswers()
 
             rightArrow.setOnClickListener {
@@ -72,53 +80,76 @@ class DailyQuizActivity : AppCompatActivity(), QuestionAdapter.score {
                     finish()
                     return@setOnClickListener
                 }
-                position++
-                progressBar.progress = progressBar.progress + 1
-                questionNumber.text = "Question " + progressBar.progress + "/10"
-                questionTxt.text = receivedList[position].question
+                else if (position < receivedList.size - 1) { // Check if position is within bounds
+                    position++
+                    progressBar.progress = progressBar.progress + 1
+                    questionNumber.text = "Question " + progressBar.progress + "/10"
+                    questionTxt.text = receivedList[position].question ?: "" // Null check
 
-            val drawableResourceId: Int = binding.root.resources.getIdentifier(
-                 receivedList[position].picPath, "drawable", binding.root.context.packageName)
-            val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
-            Glide.with(this@DailyQuizActivity)
-                .load(drawableResourceId)
-                .apply(requestOptions)
-                .into(pic)
-            loadAnswers()
+                    val drawableResourceId: Int = binding.root.resources.getIdentifier(
+                        receivedList[position].picPath, "drawable", binding.root.context.packageName)
+                    if (drawableResourceId != 0) { // Check if resource ID is valid
+                        val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
+                        Glide.with(this@DailyQuizActivity)
+                            .load(drawableResourceId)
+                            .apply(requestOptions)
+                            .into(pic)
+                    } else {
+                        // Handle the case where the resource is not found (e.g., show a default image)
+                        pic.visibility = View.GONE
+                     //   pic.setImageResource(R.drawable.default_quiz_image)
+                     //   Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show()
+                     //   Log.e("DailyQuizActivity", "Image resource not found for picPath: ${receivedList[position].picPath}")
+                    }
+                    loadAnswers()
+                }
             }
 
             leftArrow.setOnClickListener {
                 if (progressBar.progress == 1) {
                     return@setOnClickListener
                 }
-                position--
-                progressBar.progress = progressBar.progress - 1
-                questionNumber.text = "Question " + progressBar.progress + "/10"
-                questionTxt.text = receivedList[position].question
+                else if (position > 0) { // Check if position is within bounds
+                    position--
+                    progressBar.progress = progressBar.progress - 1
+                    questionNumber.text = "Question " + progressBar.progress + "/10"
+                    questionTxt.text = receivedList[position].question ?: "" // Null check
 
-                val drawableResourceId: Int = binding.root.resources.getIdentifier(
-                    receivedList[position].picPath, "drawable", binding.root.context.packageName)
-                val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
-                Glide.with(this@DailyQuizActivity)
-                    .load(drawableResourceId)
-                    .apply(requestOptions)
-                    .into(pic)
-                loadAnswers()
+                    val drawableResourceId: Int = binding.root.resources.getIdentifier(
+                        receivedList[position].picPath, "drawable", binding.root.context.packageName)
+                    if (drawableResourceId != 0) { // Check if resource ID is valid
+                        val requestOptions = RequestOptions().centerCrop().transform(RoundedCorners(60))
+                        Glide.with(this@DailyQuizActivity)
+                            .load(drawableResourceId)
+                            .apply(requestOptions)
+                            .into(pic)
+                    } else {
+                        // Handle the case where the resource is not found (e.g., show a default image)
+                        pic.visibility = View.GONE
+                     //   pic.setImageResource(R.drawable.default_quiz_image)
+                     //   Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show()
+                     //   Log.e("DailyQuizActivity", "Image resource not found for picPath: ${receivedList[position].picPath}")
+                    }
+                    loadAnswers()
+                }
             }
         }
     }
 
     private fun loadAnswers(){
         val users: MutableList<String> = mutableListOf()
-        users.add(receivedList[position].answer_1.toString())
-        users.add(receivedList[position].answer_2.toString())
-        users.add(receivedList[position].answer_3.toString())
-        users.add(receivedList[position].answer_4.toString())
+        users.add(receivedList[position].answer_1 ?: "") // Null check
+        users.add(receivedList[position].answer_2 ?: "") // Null check
+        users.add(receivedList[position].answer_3 ?: "") // Null check
+        users.add(receivedList[position].answer_4 ?: "") // Null check
 
-        if (receivedList[position].clickedAnswer != null) users.add(receivedList[position].clickedAnswer.toString())
+        // Add the clicked answer if it exists (no changes here)
+        if (receivedList[position].clickedAnswer != null) {
+            users.add(receivedList[position].clickedAnswer.toString())
+        }
 
         val questionAdapter by lazy {
-            QuestionAdapter(receivedList[position].correctAnswer.toString(), users, this)
+            QuestionAdapter(receivedList[position].correctAnswer ?: "", users, this) // Null check
         }
 
         questionAdapter.differ.submitList(users)
@@ -131,4 +162,5 @@ class DailyQuizActivity : AppCompatActivity(), QuestionAdapter.score {
         allScore += number
         receivedList[position].clickedAnswer = clickedAnswer
     }
+
 }
