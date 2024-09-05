@@ -18,9 +18,12 @@
         android:theme="@style/Theme.GyaanGuru"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.NewsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MoreAppsActivity"
             android:exported="false"
-            android:theme="@style/Theme.GyaanGuru.Light"/>
+            android:theme="@style/Theme.GyaanGuru.Light" />
         <activity
             android:name=".Activities.PrivacyActivity"
             android:exported="false" />
@@ -36,7 +39,7 @@
             android:name=".Activities.TermsActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.ProfileActivity"
+            android:name=".Account_details.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Chat_ai.CopilotActivity"

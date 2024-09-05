@@ -348,6 +348,7 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/prothomAlo"
                             android:layout_width="160sp"
                             android:layout_height="50sp"
                             android:layout_margin="10sp"
@@ -356,6 +357,7 @@
                             android:src="@drawable/prothom_alo"></ImageView>
 
                         <ImageView
+                            android:id="@+id/karatoa"
                             android:layout_width="160sp"
                             android:layout_height="50sp"
                             android:layout_margin="10sp"

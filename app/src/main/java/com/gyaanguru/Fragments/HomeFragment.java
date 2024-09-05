@@ -1,6 +1,8 @@
 package com.gyaanguru.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,26 +12,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gyaanguru.Activities.NewsActivity;
 import com.gyaanguru.Adapter.SliderAdapter;
 import com.gyaanguru.Models.SliderData;
 import com.gyaanguru.R;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private SliderAdapter adapter;
     private ArrayList<SliderData> sliderDataArrayList;
-    FirebaseFirestore firebaseFirestore;
     private SliderView sliderView;
+
+    private ImageView prothomAlo, karatoa;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -48,8 +47,13 @@ public class HomeFragment extends Fragment {
 
         sliderDataArrayList = new ArrayList<>();
         sliderView = (SliderView) view.findViewById(R.id.slider);
-        firebaseFirestore = FirebaseFirestore.getInstance();
         loadImages();
+
+        prothomAlo = (ImageView) view.findViewById(R.id.prothomAlo);
+        karatoa = (ImageView) view.findViewById(R.id.karatoa);
+
+        prothomAlo.setOnClickListener(this);
+        karatoa.setOnClickListener(this);
     }
 
     private void loadImages() {
@@ -66,6 +70,18 @@ public class HomeFragment extends Fragment {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent newsIntent = new Intent(getActivity(), NewsActivity.class);
+        if (view.getId() == R.id.prothomAlo) {
+            newsIntent.putExtra("NewsURL", "https://www.prothomalo.com/");
+        }
+        else if (view.getId() == R.id.karatoa) {
+            newsIntent.putExtra("NewsURL", "https://www.dailykaratoa.com/");
+        }
+        startActivity(newsIntent);
     }
 
 }
