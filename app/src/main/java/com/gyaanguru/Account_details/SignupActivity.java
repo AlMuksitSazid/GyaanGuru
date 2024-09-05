@@ -1,7 +1,9 @@
 package com.gyaanguru.Account_details;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,6 +67,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressDialog.show();
+                String usernameStr = username.getText().toString();
                 String emailStr = email.getText().toString().toLowerCase();
                 String passwordStr = password.getText().toString();
                 if (emailStr.isEmpty() || passwordStr.isEmpty() || username.getText().toString().isEmpty()) {
@@ -84,10 +87,15 @@ public class SignupActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+                                    SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("username", usernameStr);
+                                    editor.putString("email", emailStr);
+                                    editor.commit();
                                     progressDialog.dismiss();
                                     if (task.isSuccessful()) {
                                         String encryptedPassword = HashUtil.sha256(passwordStr);
-                                        Users users = new Users(username.getText().toString(), emailStr, encryptedPassword);
+                                        Users users = new Users(usernameStr, emailStr, encryptedPassword);
                                         String id = Objects.requireNonNull(task.getResult().getUser()).getUid();
                                         firebaseDatabase.getReference().child("Users").child(id).setValue(users);
                                         Toasty.success(SignupActivity.this, "Account Registered Successfully", Toast.LENGTH_SHORT, true).show();

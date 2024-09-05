@@ -33,7 +33,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.gyaanguru.Constants
 import com.gyaanguru.Fragments.ChataiFragment
 import com.gyaanguru.Fragments.HomeFragment
 import com.gyaanguru.Fragments.QuizzesFragment
@@ -81,6 +80,15 @@ class MainActivity : AppCompatActivity() {
         val window:Window=this@MainActivity.window
         window.statusBarColor=ContextCompat.getColor(this@MainActivity, R.color.navy_blue)
 
+        val sharedPreferences = getSharedPreferences("userDetails", MODE_PRIVATE)
+        if (sharedPreferences.contains("username") && sharedPreferences.contains("email")) {
+            userNameTxt.text = sharedPreferences.getString("username", "")
+        }
+        val storedProfileImageUrl = sharedPreferences.getString("profileImageUrl", null)
+        if (storedProfileImageUrl != null) {
+            loadProfileImage(storedProfileImageUrl) // Load the image from SharedPreferences immediately
+        }
+
      // Read the username and userEmail from the database
         userRef = firebaseDatabase.getReference("Users").child(firebaseAuth.currentUser!!.uid)
         Log.d("UserRef", userRef.toString())
@@ -90,9 +98,14 @@ class MainActivity : AppCompatActivity() {
                 userNameTxt.text = userName ?: "User"
 
                 val profileImageUrl = dataSnapshot.child("profileImageUrl").getValue(String::class.java)
-                if (profileImageUrl != null) {
-                    // Load the image into the CircleImageView
-                    loadProfileImage(profileImageUrl)
+                if (profileImageUrl != null) {  // Check if the image URL has changed
+                    if (profileImageUrl != storedProfileImageUrl) {  // Load the new image and update SharedPreferences
+                        loadProfileImage(profileImageUrl)  // Load the image into the CircleImageView
+                        with(sharedPreferences.edit()) {
+                            putString("profileImageUrl", profileImageUrl)
+                            apply()
+                        }
+                    }
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -127,7 +140,6 @@ class MainActivity : AppCompatActivity() {
             }
             profileImage.setOnClickListener {
                 val intent: Intent = Intent(this@MainActivity, ProfileActivity::class.java)
-                intent.putExtra("userName", userNameTxt.text.toString())
                 startActivity(intent)
             }
         }

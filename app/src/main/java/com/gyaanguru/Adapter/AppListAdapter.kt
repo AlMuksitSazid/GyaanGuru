@@ -33,8 +33,8 @@ class AppListAdapter(private val context: Context, private val appList: List<App
         val appInfo = appList[position]
         holder.appNameTextView.text = appInfo.name
         holder.appDescriptionTextView.text = appInfo.description
+        holder.appDescriptionTextView.apply { minLines = 2; maxLines = 2 } // Two lines fixed for all apps
         holder.appIconImageView.setImageResource(appInfo.iconResId)
-
         holder.downloadButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(appInfo.downloadLink))
             context.startActivity(intent)

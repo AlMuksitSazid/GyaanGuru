@@ -3,8 +3,10 @@ package com.gyaanguru.Activities;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -85,9 +87,16 @@ public class ProfileActivity extends AppCompatActivity {
         userNameTxt = (TextView) findViewById(R.id.userName);
         userEmailTxt = (TextView) findViewById(R.id.userEmail);
 
-        Intent intent = getIntent();
-        String userName = intent.getStringExtra("userName");
-        userNameTxt.setText(userName);
+        SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+        if (sharedPreferences.contains("username") && sharedPreferences.contains("email")){
+            userNameTxt.setText(sharedPreferences.getString("username", ""));
+            userEmailTxt.setText(sharedPreferences.getString("email", ""));
+        }
+        // Try to load profile image from SharedPreferences first
+        String storedProfileImageUrl = sharedPreferences.getString("profileImageUrl", null);
+        if (storedProfileImageUrl != null) {
+            loadProfileImage(storedProfileImageUrl);
+        }
 
         // Read the userEmail from the database
         userRef = firebaseDatabase.getReference("Users").child(firebaseAuth.getCurrentUser().getUid());
@@ -95,14 +104,23 @@ public class ProfileActivity extends AppCompatActivity {
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                SharedPreferences.Editor editor = sharedPreferences.edit(); // Initialize editor
+
+                String userName = dataSnapshot.child("userName").getValue(String.class);
+                userNameTxt.setText(userName != null ? userName : "Name notfound");
+                editor.putString("username", userName); // Store username
+
                 String userEmail = dataSnapshot.child("email").getValue(String.class);
                 userEmailTxt.setText(userEmail != null ? userEmail : "Email not found");
+                editor.putString("email", userEmail); // Store email
 
                 String profileImageUrl = dataSnapshot.child("profileImageUrl").getValue(String.class);
                 if (profileImageUrl != null) {
-                    // Load the image into the CircleImageView using Glide or Picasso
-                    loadProfileImage(profileImageUrl);
+                    loadProfileImage(profileImageUrl);  // Load the image into the CircleImageView using Glide or Picasso
+                    editor.putString("profileImageUrl", profileImageUrl);  // Update SharedPreferences with the latest profile image URL
                 }
+            //    editor.commit(); // Save all changes synchronously
+                editor.apply(); // Apply changes asynchronously
             }
 
             @Override

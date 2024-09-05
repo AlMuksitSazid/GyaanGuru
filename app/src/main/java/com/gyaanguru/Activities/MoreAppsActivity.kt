@@ -137,14 +137,14 @@ class MoreAppsActivity : AppCompatActivity() {
 
     private fun getDescriptionForApp(appName: String): String {
         return when (appName) {
-            "SmashChat" -> "A chat application."
+            "SmashChat" -> "Here, users can chat with each other."
             "SmashLight" -> "A flashlight app."
             "SmashCalculator" -> "A calculator app."
             "Smash TV" -> "A live TV app."
             "SmashWeather" -> "A weather app."
             "Electricity Bill Reader" -> "A Electricity Bill Reader app."
             "SmashDictionary" -> "A dictionary app."
-            "Smash Media Player" -> "A Media Player app.\n "
+            "Smash Media Player" -> "Here, users can play music and videos."
             else -> "App description not available."
         }
     }
